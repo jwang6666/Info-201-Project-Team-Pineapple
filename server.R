@@ -1,7 +1,7 @@
 crime_data <- read.csv("Data/2012_2017mViolent_Crimes.csv", stringsAsFactors=FALSE)
 crime_data[, "Occurred.Date.or.Date.Range.Start"] <- as.Date(crime_data[, "Occurred.Date.or.Date.Range.Start"], "%m/%d/%Y")
 my.server <- function(input, output) {
-  output$num_crime <- renderText({
+  data <- reactive({
     if(input$selectCrime == "bur") {
       crime_data <- filter(crime_data, Summarized.Offense.Description == "BURGLARY")
     } else if(input$selectCrime == "rob") {
@@ -33,8 +33,13 @@ my.server <- function(input, output) {
     second_value_input <- as.Date(second_value_input)
     crime_data <- filter(crime_data, Occurred.Date.or.Date.Range.Start >= first_value_input,
                          Occurred.Date.or.Date.Range.Start <= second_value_input)
-    return(nrow(crime_data))
-  }) 
+    return(crime_data)
+  })
+  output$mymap <- renderLeaflet({
+    leaflet(quakes) %>% addTiles() %>%
+      fitBounds(~min(-122.31), ~min(47.62), ~max(-122.29), ~max(47.65)) %>% 
+      addMarkers(data()[, "Longitude"], data()[, "Latitude"])
+  })
 }
 
 shinyServer(my.server)

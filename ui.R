@@ -1,16 +1,17 @@
 #install.packages("shiny")
 #install.packages("dplyr")
-#install.packages("ggplot2")
+#install.packages("leaflet")
 #install.packages("rsconnect")
 library("shiny")
 library("dplyr")
-library("ggplot2")
+library("leaflet")
 library("rsconnect")
 
 my.ui <- fluidPage(
   sidebarLayout(
     mainPanel(
-      textOutput("num_crime") 
+      textOutput("num_crime"),
+      leafletOutput("mymap")
     ),
     sidebarPanel(
       sliderInput("sliderTime", label = "Time (Year)", min = 2012, 
