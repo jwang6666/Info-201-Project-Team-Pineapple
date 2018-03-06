@@ -1,7 +1,7 @@
 # Info-201-Project-Team-Pineapple
 Project Name: Factors Correlated to Violent Crimes in Seattle
 
-Group Member: Chihyun, Patrick, Jiahui, Akhila
+Group Members: Chihyun, Patrick, Jiahui, Akhila
 
 Shinyapps.io Link: 
 
@@ -25,11 +25,16 @@ Four outputs are orgainzed by a tabset panel, which provides a neat user interfa
 
 ## Where Did Our Data From?
 
+Our team gathered data from various sources:
+1. Violent crimes, crime location, and illegal drug arrests were gathered from the [Seattle Police Department website](https://www.seattle.gov/police/information-and-data)
+1. unemployment rate, Seattle population, homeless population, high school graduation rate, and median household income were collected from [US census bureau](https://www.census.gov/data.html), [Seattle Government website](http://www.seattle.gov/services-and-information), and [Talkpoverty.org](https://talkpoverty.org/state-year-report/washington-2017-report/)
 
+We merged data from various sources into two `.csv` tables: 
+1. `2012_2017mViolent_Crimes.csv` which contains information such as crime types, crime locations(longitude and latitude) and crime times
+1. `violent_crimes.csv` which contains information such as unemployment rates, rents, cocaine arrests, food index, and orgainzed by months.
 
 
 ## Who is our Targeted User?
 
 ## Our Code
 
-## Team Pineapple
