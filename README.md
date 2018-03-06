@@ -6,20 +6,18 @@ Group Members: Chihyun, Patrick, Jiahui, Akhila
 Shinyapps.io Link: 
 
 ## What Does Our Web Application Do?
-Our Project aims to provide a 
-
-
+Our Project aims to find out how factors such as time, location, unemployment rate, average rent, cocaine arrests and consumer index price of food correlates to violent crimes in Seattle. During our projects, we were seeking answers for questions like `Which place in Seattle had the most robbery cases in 2015?`, `How average rent influences violent crime in Seattle?`. We use `map`, `scattergraph`, and `table` to provide a clear data visualization for our audience. 
 
 Our input includes three parts:
 1. A slider bar that let users choose time range between 2012 to 2018.
-1. A select box that let users choose type of crime they are interested in.
-1. Another select box that let users choose what factors they want to look in that influences violent crimes. 
+1. A select box that let users choose type of crime they are interested in, includes burglary, robbery, assault, vehicle theft, threat and suicide.
+1. Another select box that let users choose what factors they want to look in that influences violent crimes, includes unemployment rate, average rent, cocaine arrests and consumer index price of food. 
 
 Our output includes four parts:
 1. A  brief description that introduces what our application do and how to use it.
 1. A map that responses to the first and the second input, shows locations of a specific type of violent crime happened in a specific period of time. Also, this map is adjustable, which can show users the distribution of violent crimes macroscopically in Seattle as well as the location of every crime details to blocks.
 1. A scattergraph that responses to the third input, shows the correlation between a specific factor and violent crimes. 
-1. A regression table with statistic data of how the four factors are correlated to violent crimes in Seattle.
+1. A regression table with statistic analyses of how the four factors are correlated to violent crimes in Seattle.
 
 Four outputs are orgainzed by a tabset panel, which provides a neat user interface for our audience. 
 
@@ -37,4 +35,12 @@ We merged data from various sources into two `.csv` tables:
 ## Who is our Targeted User?
 
 ## Our Code
+```
+library("shiny")
+library("dplyr")
+library("leaflet")
+library("rsconnect")
+library("ggplot2")
+library("scales")
+```
 
