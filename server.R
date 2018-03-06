@@ -1,15 +1,10 @@
-#Read in one of the csv file
 crime_data <- read.csv("Data/2012_2017mViolent_Crimes.csv", stringsAsFactors=FALSE)
-
-#Needed the "Occurred.Date.or.Date.Range.Start" column of crime_data to sort the data by time. 
-#However, the data wasn't in "Date" data type, instead it was "character" data type.
-#So, I changed it to "Date" data type. In turn, it allowed me to sort the data by time.
 crime_data[, "Occurred.Date.or.Date.Range.Start"] <- as.Date(crime_data[, "Occurred.Date.or.Date.Range.Start"], "%m/%d/%Y")
-
+crime_data2 <- read.csv('Data/violent_crimes.csv', stringsAsFactors = FALSE)
 my.server <- function(input, output) {
-  #fully filtered crime_data is put into data
+  
+  ## THIS IS MAP STUFF
   data <- reactive({
-    #figures out users preferred type of crime, and filters out that crime in crime_Data
     if(input$selectCrime == "bur") {
       crime_data <- filter(crime_data, Summarized.Offense.Description == "BURGLARY")
     } else if(input$selectCrime == "rob") {
@@ -23,7 +18,6 @@ my.server <- function(input, output) {
     } else {
       crime_data <- filter(crime_data, Summarized.Offense.Description == "HOMICIDE")
     }
-    #changes "numerical" data type of input$sliderTime into "Date" data type for later filtering.
     first_value_input <- input$sliderTime[1]
     second_value_input <- input$sliderTime[2]
     if(first_value_input %% 1 == 0) {
@@ -40,21 +34,77 @@ my.server <- function(input, output) {
     }
     first_value_input <- as.Date(first_value_input)
     second_value_input <- as.Date(second_value_input)
-    #filters out the time within the range of time selected by the user
     crime_data <- filter(crime_data, Occurred.Date.or.Date.Range.Start >= first_value_input,
                          Occurred.Date.or.Date.Range.Start <= second_value_input)
-    #returns the fully filtered out crime data to "data"
     return(crime_data)
   })
-  
-  #uses the filtered out crime data named "data()" to make a map
-  #dont be surprised that "data" has brackets beside it like a function. Apparently, it's some weird syntax thing.
-  #so "data()" is the same as "data" as mentioned above.
+
   output$mymap <- renderLeaflet({
     leaflet(quakes) %>% addTiles() %>%
       fitBounds(~min(-122.31), ~min(47.62), ~max(-122.29), ~max(47.65)) %>% 
       addMarkers(data()[, "Longitude"], data()[, "Latitude"], clusterOptions = markerClusterOptions())
   })
-}
+
+  
+  
+  ##THIS IS FACTORS STUFF
+  output$distPlot <- renderPlot({
+    
+    if (input$select == 1){
+      ggplot(data=crime_data2) +
+        geom_point(mapping = aes(x = crime_data2$unemployment, y = crime_data2$violent_crimes)) +
+        labs(x= "Unemployment Rate", y="Violent Crimes") 
+    } else if (input$select == 2) {
+      ggplot(data=crime_data2) +
+        geom_point(mapping = aes(x = crime_data2$rents, y = crime_data2$violent_crimes)) +
+        labs(x= "Average Rent", y="Violent Crimes") +
+        scale_x_continuous(labels = dollar)
+    } else if (input$select == 3) {
+      ggplot(data=crime_data2) +
+        geom_point(mapping = aes(x = crime_data2$cocaine_arrests, y = crime_data2$violent_crimes)) +
+        labs(x= "Cocaine Arrests", y="Violent Crimes")      
+    }else {
+      ggplot(data=crime_data2) +
+        geom_point(mapping = aes(x = crime_data2$food_index, y = crime_data2$violent_crimes)) +
+        labs(x= "Consumer Price Index of Food", y="Violent Crimes")
+    }
+  })
+  
+  ##THIS IS DESCRIPTION STUFF
+  output$description <-renderText("We ran a regression on four monthly variables including, unemployment,
+                                  average rent, cocaine arrests, and consumer price index on food to determine their 
+                                  correlations on violent crimes.")
+  
+  
+  ##THIS IS EXPLANATION UNDER WIDGETS
+  output$variables <- renderText({
+    if(input$select == 1){"Violent crimes in Seattle increase by 11.78 when unemployment
+      rate increase by 1%"
+    } else if(input$select == 2) {
+      "Violent crimes in Seattle increase by 0.20 when average rent
+      increase by $1"
+    } else if(input$select == 3) {
+      "Violent crimes in Seattle decrease by 0.75 when the number of 
+      cocaine arrests increase by $1"
+    } else {
+      "Violent crimes in Seattle decrease by 3.13 when Consumer Price
+      Index of Food increase by 1"
+    }
+    })
+  
+  ##THIS IS STATISTICS TABLE
+  output$table <- renderImage({
+    filename = normalizePath("./data/regression_table.png")
+    #~/Desktop/INFO 201/Info201-Project-Team-Pineapple/regression_table.png
+    list(src = filename)
+  }, deleteFile = FALSE)
+  
+ ##THIS IS INTRODUCTION STUFF
+  
+  
+  
+   
+  }
 
 shinyServer(my.server)
+
