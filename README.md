@@ -1,7 +1,7 @@
 # Info-201-Project-Team-Pineapple
 Link: 
 
-##What Does Our Web Application Do?
+## What Does Our Web Application Do?
 
 Our input includes three parts:
 1. A slider bar that let users choose time range between 2012 to 2018.
@@ -15,10 +15,10 @@ Our output includes four parts:
 1. 
 
 
-##Where Did Our Data From?
+## Where Did Our Data From?
 
 
 
 
-##Who is our Targeted User?
+## Who is our Targeted User?
 
