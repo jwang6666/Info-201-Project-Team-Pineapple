@@ -1,6 +1,8 @@
 # Info-201-Project-Team-Pineapple
 Project Name: Factors Correlated to Violent Crimes in Seattle
+
 Group Member: Chihyun, Patrick, Jiahui, Akhila
+
 Shinyapps.io Link: 
 
 ## What Does Our Web Application Do?
