@@ -37,8 +37,10 @@ We merged data from various sources into two `.csv` tables:
 
 A variety of audiences would be interested in our project. Here are some examples:
 1. Buisness owners who want to open a new shop in Seattle
+
 Business owners can check if a place is a good choice for opening a new shop by looking at past violent crimes in a specific location by using our `map`.
 
 1. Government officers
+
 Government officers can improve pubilc security by checking which factor influences violent crimes the most by using our `scattergraph` and `regression table`. 
 
