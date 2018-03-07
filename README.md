@@ -5,8 +5,10 @@ Group Members: Chihyun, Patrick, Jiahui, Akhila
 
 Shinyapps.io Link: 
 
+More code and information can be found at [Github](https://github.com/jwang6666/Info201-Project-Team-Pineapple)
+
 ## What Does Our Web Application Do?
-Our Project aims to find out how factors such as time, location, unemployment rate, average rent, cocaine arrests and consumer index price of food correlates to violent crimes in Seattle. During our projects, we were seeking answers for questions like `Which place in Seattle had the most robbery cases in 2015?`, `How average rent influences violent crime in Seattle?`. We use `map`, `scattergraph`, and `table` to provide a clear data visualization for our audience. 
+Our Project aims to find out how factors such as time, location, unemployment rate, average rent, cocaine arrests and consumer index price of food correlate to violent crimes in Seattle. During our projects, we are seeking answers for questions like _Which place in Seattle had the most robbery cases in 2015?_, _How average rent influences violent crime in Seattle?_, _How number violent crimes change by the change of unemployment rate?_ We use `map`, `scattergraph`, and `table` to provide a clear data visualization for our audience. 
 
 Our input includes three parts:
 1. A slider bar that let users choose time range between 2012 to 2018.
@@ -31,16 +33,12 @@ We merged data from various sources into two `.csv` tables:
 1. `2012_2017mViolent_Crimes.csv` which contains information such as crime types, crime locations(longitude and latitude) and crime times
 1. `violent_crimes.csv` which contains information such as unemployment rates, rents, cocaine arrests, food index, and orgainzed by months.
 
-
 ## Who is our Targeted User?
 
-## Our Code
-```
-library("shiny")
-library("dplyr")
-library("leaflet")
-library("rsconnect")
-library("ggplot2")
-library("scales")
-```
+A variety of audiences would be interested in our project. Here are some examples:
+1. Buisness owners who want to open a new shop in Seattle
+Business owners can check if a place is a good choice for opening a new shop by looking at past violent crimes in a specific location by using our `map`.
+
+1. Government officers
+Government officers can improve pubilc security by checking which factor influences violent crimes the most by using our `scattergraph` and `regression table`. 
 
