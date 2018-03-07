@@ -3,7 +3,7 @@ Project Name: **Factors Correlated to Violent Crimes in Seattle**
 
 Group Members: Chihyun, Patrick, Jiahui, Akhila
 
-Shinyapps.io Link: 
+Shinyapps.io Link:  https://jwang6666.shinyapps.io/info201-project-team-pineapple/
 
 More code and information can be found at [Github](https://github.com/jwang6666/Info201-Project-Team-Pineapple)
 
