@@ -5,7 +5,6 @@ Group Members: Chihyun, Patrick, Jiahui, Akhila
 
 Shinyapps.io Link:  https://jwang6666.shinyapps.io/info201-project-team-pineapple/
 
-More code and information can be found at [Github](https://github.com/jwang6666/Info201-Project-Team-Pineapple)
 
 ## What Does Our Web Application Do?
 Our Project aims to find out how factors such as time, location, unemployment rate, average rent, cocaine arrests and consumer index price of food correlate to violent crimes in Seattle. During our projects, we are seeking answers for questions like _Which place in Seattle had the most robbery cases in 2015?_, _How average rent influences violent crime in Seattle?_, _How number violent crimes change by the change of unemployment rate?_ We use `map`, `scattergraph`, and `table` to provide a clear data visualization for our audience. 
