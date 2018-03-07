@@ -3,7 +3,7 @@ crime_data[, "Occurred.Date.or.Date.Range.Start"] <- as.Date(crime_data[, "Occur
 crime_data2 <- read.csv('Data/violent_crimes.csv', stringsAsFactors = FALSE)
 my.server <- function(input, output) {
   
-  ## THIS IS MAP STUFF
+  ## THIS IS MAP
   data <- reactive({
     if(input$selectCrime == "bur") {
       crime_data <- filter(crime_data, Summarized.Offense.Description == "BURGLARY")
@@ -47,7 +47,7 @@ my.server <- function(input, output) {
 
   
   
-  ##THIS IS FACTORS STUFF
+  ##THIS IS CORRELATED FACTORS 
   output$distPlot <- renderPlot({
     
     if (input$select == 1){
@@ -70,7 +70,7 @@ my.server <- function(input, output) {
     }
   })
   
-  ##THIS IS DESCRIPTION STUFF
+  ##THIS IS DESCRIPTION UNDER REGRESSION TABLE
   output$description <-renderText("We ran a regression on four monthly variables including, unemployment,
                                   average rent, cocaine arrests, and consumer price index on food to determine their 
                                   correlations on violent crimes.")
@@ -98,11 +98,6 @@ my.server <- function(input, output) {
     #~/Desktop/INFO 201/Info201-Project-Team-Pineapple/regression_table.png
     list(src = filename)
   }, deleteFile = FALSE)
-  
- ##THIS IS INTRODUCTION STUFF
-  
-  
-  
    
   }
 

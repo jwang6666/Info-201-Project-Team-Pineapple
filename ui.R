@@ -4,23 +4,27 @@
 #install.packages("rsconnect")
 #install.packages("ggplot2")
 #install.packages("scales")
+#install.packages("shinythemes")
 library("shiny")
 library("dplyr")
 library("leaflet")
 library("rsconnect")
 library("ggplot2")
 library("scales")
+library("markdown")
+library("shinythemes")
 
 my.ui <- fluidPage(
-  titlePanel <- h1("Factors Correlated top Violent Crimes in Seattle"),
+  titlePanel <- h1("Factors Correlated to Violent Crimes in Seattle"),
+  theme = shinytheme("darkly"),
   
   sidebarLayout(
     mainPanel(
       tabsetPanel(type="tabs",
-                  tabPanel("Introduction", textOutput("intro")),
+                  tabPanel("Introduction", includeMarkdown("introduction.md")),
                   tabPanel("Map",leafletOutput("mymap")),
-                  tabPanel("Factors", plotOutput("distPlot")),
-                  tabPanel("Table", imageOutput("table"),  textOutput("description"))
+                  tabPanel("Correlated Factors", plotOutput("distPlot")),
+                  tabPanel("Regression Table", imageOutput("table"),  textOutput("description"))
       )
       ),
     sidebarPanel(
