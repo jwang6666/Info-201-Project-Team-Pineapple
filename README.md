@@ -23,7 +23,7 @@ Our output includes four parts:
 
 Four outputs are orgainzed by a tabset panel, which provides a neat user interface for our audience. 
 
-## Where Did Our Data From?
+## Where Did Our Data Come From?
 
 Our team gathered data from various sources:
 1. Violent crimes, crime location, and illegal drug arrests were gathered from the [Seattle Police Department website](https://www.seattle.gov/police/information-and-data)
@@ -40,7 +40,7 @@ A variety of audiences would be interested in our project. Here are some example
 
 Business owners can check if a place is a good choice for opening a new shop by looking at past violent crimes in a specific location by using our `map`.
 
-1. Government officers
+2. Government officers
 
 Government officers can improve pubilc security by checking which factor influences violent crimes the most by using our `scattergraph` and `regression table`. 
 
