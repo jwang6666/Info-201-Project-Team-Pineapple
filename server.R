@@ -75,6 +75,9 @@ my.server <- function(input, output) {
                                   average rent, cocaine arrests, and consumer price index on food to determine their 
                                   correlations on violent crimes.")
   
+  #DESCRIPTION FOR THE SCATTER PLOTS
+  output$graph_description <-renderText("each dotted points represents a monthly data from 2012 - 2016")
+  
   
   ##THIS IS EXPLANATION UNDER WIDGETS
   output$variables <- renderText({
