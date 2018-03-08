@@ -55,6 +55,7 @@ my.ui <- navbarPage(
            ),
            
            mainPanel(plotOutput("distPlot"))
+           textOutput("graph_description")
   ),
   
   tabPanel("Regression Table",
