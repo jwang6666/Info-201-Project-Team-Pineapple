@@ -85,7 +85,7 @@ my.server <- function(input, output) {
       increase by $1"
     } else if(input$select == 3) {
       "Violent crimes in Seattle decrease by 0.75 when the number of 
-      cocaine arrests increase by $1"
+      cocaine arrests increase by 1"
     } else {
       "Violent crimes in Seattle decrease by 3.13 when Consumer Price
       Index of Food increase by 1"
