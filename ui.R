@@ -54,7 +54,7 @@ my.ui <- navbarPage(
              textOutput("variables")
            ),
            
-           mainPanel(plotOutput("distPlot"))
+           mainPanel(plotOutput("distPlot")),
            textOutput("graph_description")
   ),
   
