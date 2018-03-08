@@ -76,7 +76,7 @@ my.server <- function(input, output) {
                                   correlations on violent crimes.")
   
   #DESCRIPTION FOR THE SCATTER PLOTS
-  output$graph_description <-renderText("each dotted points represents a monthly data from 2012 - 2016")
+  output$graph_description <-renderText("each dotted points represents monthly data from 2012 - 2016")
   
   
   ##THIS IS EXPLANATION UNDER WIDGETS
